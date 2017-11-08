@@ -19,7 +19,11 @@
 			<h1>${category.name}</h1>
 
 			<div class="row">
-				<div class="col-xs-6"></div>
+				<div class="col-xs-6">
+					<c:forEach items="${category.products}" var="category">
+						<p>${category.name}</p>
+					</c:forEach>
+				</div>
 				<div class="col-xs-6">
 					<form method="POST" action="/productCat/${category.id}">
 						<label name="products">Add Products:

@@ -21,8 +21,8 @@
 			<div class="row">
 				<h3>Categories</h3>
 				<div class="col-xs-6">
-					<c:forEach items="${cat_prod}" var="category">
-						<p>${category.description}</p>
+					<c:forEach items="${product.categories}" var="category">
+						<p>${category.name}</p>
 					</c:forEach>
 				</div>
 				<div class="col-xs-6">

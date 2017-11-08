@@ -62,18 +62,16 @@ public class RouteController {
     @RequestMapping("/products/{id}")
     public String products(@PathVariable("id") Long id, Model model) {
         Product product = productService.getProduct(id);
-        Object catProd = categoryService.join();
-        model.addAttribute("cat_prod", catProd);
         model.addAttribute("product", product);
-        model.addAttribute("categories", categoryService.allCategories());
+        model.addAttribute("categories", categoryService.availableCategories(product));
         return "index.2";
     }
 
     @RequestMapping("/categories/{id}")
     public String categories(@PathVariable("id") Long id, Model model) {
-        Category curCat = categoryService.getCategory(id);
-        model.addAttribute("category", curCat);
-        model.addAttribute("products", productService.allProducts());
+        Category category = categoryService.getCategory(id);
+        model.addAttribute("category", category);
+        model.addAttribute("products", productService.availableProducts(category));
         return "index.3";
     }
 
